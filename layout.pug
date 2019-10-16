@@ -1,0 +1,49 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet",
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm",
+    crossorigin="anonymous")
+    style(type='text/css').
+      body{
+        background:url('http://drive.google.com/uc?export=view&id=1t2bpqsI_gzb_uD0rgVZVBSTHIfP6xFKu');
+      }
+      #maindiv{
+        color:gray;
+        padding-top:20px;
+        margin-left:200px;
+      }
+      #char1{
+        position:fixed;
+        bottom:40px;
+        left:30px;
+        height:150px;
+      }
+      #char2{
+        position:fixed;
+        bottom:60px;
+        right:50px;
+        height:250px;
+        animation:fuwafuwa 3s infinite linear alternate;
+      }
+      @keyframes fuwafuwa {
+      0% {transform:translate(0, 0) rotate(-5deg);}
+      50% {transform:translate(0, -5px) rotate(0deg);}
+      100% {transform:translate(0, 0)rotate(5deg);}
+      }
+      button{
+        background: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin-right:100px;
+      }
+      button:hover{
+        opacity:0.5;
+      }
+
+    title アンケート
+  body
+    block content
