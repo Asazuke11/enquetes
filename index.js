@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
 				res.write(pug.renderFile('./form.pug', {
 					title: "N予備校プログラミング入門-Webアプリ",
 					Q: "ここでつまづいた！",
-					Q_small:"躓いた方は、どの章、どの項で躓きましたか？"
+					Q_small:"どの項で躓きましたか？"
 				}
 				));
 			}
@@ -26,6 +26,21 @@ const server = http.createServer((req, res) => {
 			}
 			if (req.url === "/1st") {
 				res.write(pug.renderFile('./form1.pug',{
+					Q:"躓いた項を選択してください"
+				}));
+			}
+			if (req.url === "/2nd") {
+				res.write(pug.renderFile('./form2.pug',{
+					Q:"躓いた項を選択してください"
+				}));
+			}
+			if (req.url === "/3rd") {
+				res.write(pug.renderFile('./form3.pug',{
+					Q:"躓いた項を選択してください"
+				}));
+			}
+			if (req.url === "/4th") {
+				res.write(pug.renderFile('./form3.pug',{
 					Q:"躓いた項を選択してください"
 				}));
 			}
