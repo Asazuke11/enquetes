@@ -1,11 +1,10 @@
 'use strict';
 const http = require('http');
 const pug = require('pug');
-
+var answer = [];
 
 const server = http.createServer((req, res) => {
 	const now = new Date();
-	let answer = [];
 	console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
 	res.writeHead(200, {
 		'Content-Type': 'text/html; charset=utf-8'
@@ -53,8 +52,11 @@ const server = http.createServer((req, res) => {
 			}).on('end', () => {
 				body = Buffer.concat(body).toString();
 				const decoded = decodeURIComponent(body);
-				answer.push(decoded);
-				console.info(`投稿:${decoded}`);
+				if(decoded){
+				const enquetes = decoded.split('enq=')[1];
+				answer.push(enquetes);
+				console.info(`投稿:${enquetes}`);
+				};
 				console.log(answer);
 				Redirect(req, res);
         res.end();

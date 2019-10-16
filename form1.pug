@@ -38,6 +38,10 @@ html(lang="ja")
         border-top: none;
         border-left: none;
         border-right: none;
+        margin-right:100px;
+      }
+      button:hover{
+        opacity:0.5;
       }
 
     title アンケート
@@ -54,60 +58,61 @@ html(lang="ja")
           .col-sm
             form(method="post" action="/")
               p
-                input(type="radio" name="一章" value="1_01")
+                input(type="radio" name="enq" value="1_01")
                 span 　01.プログラミング体験をしてみよう
               p
-                input(type="radio" name="一章" value="1_02")
+                input(type="radio" name="enq" value="1_02")
                 span 　02.はじめてのHTML
               p
-                input(type="radio" name="一章" value="1_03")
+                input(type="radio" name="enq" value="1_03")
                 span 　03.さまざまなHTMLタグ
               p
-                input(type="radio" name="一章" value="1_04")
+                input(type="radio" name="enq" value="1_04")
                 span 　04.HTMLで作る自己紹介ページ
               p
-                input(type="radio" name="一章" value="1_05")
+                input(type="radio" name="enq" value="1_05")
                 span 　05.はじめてのJavaScript
               p
-                input(type="radio" name="一章" value="1_01")
+                input(type="radio" name="enq" value="1_01")
                 span 　06.JavaScriptでの計算
               p
-                input(type="radio" name="一章" value="1_02")
+                input(type="radio" name="enq" value="1_02")
                 span 　07.JavaScriptで論理を扱う
               p
-                input(type="radio" name="一章" value="1_03")
+                input(type="radio" name="enq" value="1_03")
                 span 　08.JavaScriptのループ
               p
-                input(type="radio" name="一章" value="1_04")
+                input(type="radio" name="enq" value="1_04")
                 span 　09.JavaScriptのコレクション
               p
-                input(type="radio" name="一章" value="1_05")
+                input(type="radio" name="enq" value="1_05")
                 span 　10.JavaScriptの関数
               p
-                input(type="radio" name="一章" value="1_01")
+                input(type="radio" name="enq" value="1_01")
                 span 　11.JavaScriptのオブジェクト
               p
-                input(type="radio" name="一章" value="1_02")
+                input(type="radio" name="enq" value="1_02")
                 span 　12.はじめてのCSS
               p
-                input(type="radio" name="一章" value="1_03")
+                input(type="radio" name="enq" value="1_03")
                 span 　13.CSS を使ったプログラミング
               p
-                input(type="radio" name="一章" value="1_04")
+                input(type="radio" name="enq" value="1_04")
                 span 　14.Web ページの企画とデザイン
               p
-                input(type="radio" name="一章" value="1_05")
+                input(type="radio" name="enq" value="1_05")
                 span 　15.診断機能の開発
               p
-                input(type="radio" name="一章" value="1_04")
+                input(type="radio" name="enq" value="1_04")
                 span 　16.診断機能の組込み
               p
-                input(type="radio" name="一章" value="1_05")
+                input(type="radio" name="enq" value="1_05")
                 span 　17.ツイート機能の開発
+              hr
+              button(type="button" onclick="location.href='./'") 戻る
               button(type="submit") 投稿
               hr
               hr
-    
         script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
