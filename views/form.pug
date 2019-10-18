@@ -41,11 +41,17 @@ html(lang="ja")
       button:hover{
         opacity:0.5;
       }
+      #logoutButton{
+        position:fixed;
+        top:20px;
+        right:20px;
+      }
 
     title アンケート
   body
     main#maindiv
       .container
+        button#logoutButton(type="button" onclick="location.href='./logout'") ログアウト
         h3 #{title}
         h4 【 #{Q} 】アンケート!
         hr

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "http-auth": "3.2.3",
     "pg": "7.4.1",
     "pg-hstore": "2.3.2",
     "pug": "2.0.0-rc.4",
