@@ -1,0 +1,107 @@
+extends layout
+
+block content
+  main#maindiv
+    .container
+      p #{Q}
+      hr
+      img#char1(src="http://drive.google.com/uc?export=view&id=15eFZ2kKYvLXESJ09BGAPr7a4f_L0gErM")
+      img#char2(src="http://drive.google.com/uc?export=view&id=1t_JczBffzwmDMHumalPQcoT5sTMYDN13")
+    .container
+      p 第4章 実践サーバーサイドプログラミング
+      .row
+        .col-sm
+          form(method="post")
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_01")
+              span 　01.Webフレームワーク
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_02")
+              span 　02.ExpressのAPI
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_03")
+              span 　03.GitHubを使った外部認証
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_04")
+              span 　04.テスティングフレームワーク
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_05")
+              span 　05.継続的インテグレーション
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_06")
+              span 　06.クライアントのフレームワーク
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_07")
+              span 　07.DOM操作のフレームワーク
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_08")
+              span 　08.AJAX
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_09")
+              span 　09.WebSocket
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_10")
+              span 　10.RDBMS と SQL
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_11")
+              span 　11.データモデリング
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_12")
+              span 　12.テーブルの結合
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_13")
+              span 　13.インデックス
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_14")
+              span 　14.集計とソート
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_15")
+              span 　15.「予定調整くん」の設計
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_16")
+              span 　16.認証の実装とテスト
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_17")
+              span 　17.ユーザーの保存
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_18")
+              span 　18.予定の一覧の表示
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_19")
+              span 　19.出欠の表示と更新
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_20")
+              span 　20.コメントの表示と更新
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_21")
+              span 　21.予定の編集と削除
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_22")
+              span 　22.デザインの改善
+            p
+              input(type="radio" name="enq" onclick="func_click()" value="4_23")
+              span 　23.セキュリティ対策と公開
+            hr
+            textarea#tex(name="coment" cols=60 rows=1 placeholder="※特に「ここが！」(任意)")
+            hr
+            hr
+            button(type="button" onclick="location.href='./'") 戻る
+            button#submit_button(type="submit" disabled=true) 投稿
+            hr
+            hr
+      script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
+      script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
+      crossorigin="anonymous")
+      script.
+        var sub_button = document.getElementById('submit_button');
+        var radio_button = document.getElementsByTagName('input');
+        var text_area = document.getElementById('tex');
+        function func_click(){
+          for(let i = 0; i < radio_button.length;i++){
+            if(radio_button.item(i).checked === true){
+              text_area.style.display = "block";
+              sub_button.disabled = false;
+            }
+          }
+        }
