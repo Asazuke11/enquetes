@@ -8,12 +8,22 @@ block content
       img#char1(src="http://drive.google.com/uc?export=view&id=15eFZ2kKYvLXESJ09BGAPr7a4f_L0gErM")
       img#char2(src="http://drive.google.com/uc?export=view&id=1t_JczBffzwmDMHumalPQcoT5sTMYDN13")
     .container
-      p 投稿一覧
+      button(type="button" onclick="location.href='./index'") 戻る
+      hr
+      hr
+      p アンケート・一覧
+      hr
+      hr
       .row
         .col-sm
-
+          each post in DBData
+            p(style="color:black;") ここが難しい！→
+             span(style="color:blue;") 　「#{post.chapter}」
+            if(post.content)
+              p(style="color:red;")
+                small コメント:　#{post.content}
             hr
-            hr
+          hr
       script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
       script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",

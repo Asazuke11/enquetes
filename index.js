@@ -3,11 +3,9 @@ const http = require('http');
 const auth = require('http-auth');
 const pug = require('pug');
 const Post = require('./post');
-// const basic = auth.basic(
-//   { realm: 'Enquetes Area.' },
-//   (username, password, callback) => {
-//     callback(username === 'guest' && password === 'xaXZJQmE');
-//   });
+var enquetes_chap ="";
+var enquetes_come = "";
+var DBData = "";
 
 const server = http.createServer((req, res) => {
 	switch (req.method) {
@@ -15,43 +13,48 @@ const server = http.createServer((req, res) => {
 			res.writeHead(200, {
 				'Content-Type': 'text/html; charset=utf-8'
 			});
-			if (req.url === '/') {
+			Post.findAll({order:[['id', 'DESC']]}).then((posts) => {
+				DBData = posts;
+			});
+			if (req.url === '/index') {
 				res.write(pug.renderFile('./views/form.pug', {
 					title: "N予備校プログラミング入門-Webアプリ",
 					Q: "ここでつまづいた！",
 					Q_small: "つまずいた方は、どの項でつまずきましたか？"
 				}));
-			}
-			if (req.url === '/chapter0') {
+			} else if (req.url === '/chapter0') {
 				res.write(pug.renderFile('./views/form0.pug'));
-			}
-			if (req.url === '/chapter1') {
+			} else if (req.url === '/chapter1') {
 				res.write(pug.renderFile('./views/form1.pug', {
 					Q: "躓いた項を選択してください"
 				}));
-			}
-			if (req.url === '/chapter2') {
+			} else if (req.url === '/chapter2') {
 				res.write(pug.renderFile('./views/form2.pug', {
 					Q: "躓いた項を選択してください"
 				}));
-			}
-			if (req.url === '/chapter3') {
+			} else if (req.url === '/chapter3') {
 				res.write(pug.renderFile('./views/form3.pug', {
 					Q: "躓いた項を選択してください"
 				}));
-			}
-			if (req.url === '/chapter4') {
+			} else if (req.url === '/chapter4') {
 				res.write(pug.renderFile('./views/form4.pug', {
 					Q: "躓いた項を選択してください"
 				}));
-			}
-			if (req.url === '/logout') {
-				res.writeHead(401, {
-					'Content-Type': 'text/plain; charset=utf-8'
+			} else if (req.url === '/post') {
+				Post.findAll({order:[['id', 'DESC']]}).then((posts) => {
+						DBData = posts;
 				});
-				res.end('ログアウトしました');
-				return;
-			}
+				postPage(req, res);
+			} else if (req.url === '/result') {
+				res.write(pug.renderFile('./views/form_result.pug', {
+					DBData: DBData
+				}));
+			}else {
+				res.writeHead(404, {
+					'Content-Type': 'text/html; charset=utf-8'
+				});
+				res.write(pug.renderFile('./views/notF.pug'));
+				}
 			res.end();
 			break;
 		case 'POST':
@@ -62,8 +65,8 @@ const server = http.createServer((req, res) => {
 				body = Buffer.concat(body).toString();
 				const decoded = decodeURIComponent(body);
 				const enquetes = decoded.split('enq=')[1];
-				const enquetes_chap = enquetes.split('&coment=')[0];
-				const enquetes_come = enquetes.split('&coment=')[1];
+				enquetes_chap = enquetes.split('&coment=')[0];
+				enquetes_come = enquetes.split('&coment=')[1];
 				Post.create({
 					content: enquetes_come,
 					chapter: enquetes_chap,
@@ -88,7 +91,17 @@ server.listen(port, () => {
 
 function Redirect(req, res) {
 	res.writeHead(303, {
-		'Location': './'
+		'Location': './post'
 	});
 	res.end();
+}
+
+function postPage(req, res) {
+	res.writeHead(200, {
+		'Content-Type': 'text/html; charset=utf-8'
+	});
+	res.end(pug.renderFile('./views/post.pug', { 
+		chap: enquetes_chap,
+		come:	enquetes_come
+	}));
 }

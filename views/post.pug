@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  main
+    .container
+      hr
+    .container
+      button(type="button" onclick="location.href='./index'") 投稿フォームページへ戻る
+      hr
+      hr
+      .row
+        .col-sm(style="text-align: center;")
+          h1 ご協力ありがとうございます。
+          p 投稿アンケート内容
+          p 【#{chap}】
+          p #{come}
+          img(style="margin-top:100px;" src="http://drive.google.com/uc?export=view&id=1CY8wTpGk0fa3pTNVvkZy1MhpedkEavvg")
+      script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
+      script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
+      crossorigin="anonymous")
+      script.
+        function jump() {
+          location.href = "./result";
+        }
+        setTimeout(jump, 5000);
+        

@@ -1,91 +1,35 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charset="UTF-8")
-    link(rel="stylesheet",
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm",
-    crossorigin="anonymous")
-    style(type='text/css').
-      body{
-        background:url('http://drive.google.com/uc?export=view&id=1t2bpqsI_gzb_uD0rgVZVBSTHIfP6xFKu');
-      }
-      #maindiv{
-        color:gray;
-        padding-top:20px;
-      }
-      #char1{
-        position:fixed;
-        bottom:40px;
-        left:30px;
-        height:150px;
-      }
-      #char2{
-        position:fixed;
-        bottom:60px;
-        right:50px;
-        height:250px;
-        animation:fuwafuwa 3s infinite linear alternate;
-      }
-      #char3{
-        position:fixed;
-        top:0px;
-        right:100px;
-        height:250px;
-        animation:fura 3s infinite linear alternate;
-      }
-      @keyframes fuwafuwa {
-      0% {transform:translate(0, 0) rotate(-5deg);}
-      50% {transform:translate(0, -5px) rotate(0deg);}
-      100% {transform:translate(0, 0)rotate(5deg);}
-      }
-      @keyframes fura {
-      0% {transform:translate(0, 0)}
-      50% {transform:translate(0, -5px)}
-      100% {transform:translate(0, 0)}
-      }
-      button{
-        background: none;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-      }
-      button:hover{
-        opacity:0.5;
-      }
-      #logoutButton{
-        position:fixed;
-        top:20px;
-        right:20px;
-      }
+extends layout
 
-    title アンケート
-  body
-    main#maindiv
-      .container
-        //- button#logoutButton(type="button" onclick="location.href='./logout'") ログアウト
-        h3 #{title}
-        h4 【 #{Q} 】アンケート!
-        hr
-        img#char1(src="http://drive.google.com/uc?export=view&id=15eFZ2kKYvLXESJ09BGAPr7a4f_L0gErM")
-        img#char2(src="http://drive.google.com/uc?export=view&id=1t_JczBffzwmDMHumalPQcoT5sTMYDN13")
-        img#char3(src="http://drive.google.com/uc?export=view&id=1YEzOdbtdy_RvdAaMCPIhKmpjj7puu3kF")
-      .container
-        .row
-          .col-sm
-            P 【Q.#{Q_small}】
-            p
-              button(type="button" onclick="location.href='./chapter1'") １章 はじめよう
-            p
-              button(type="button" onclick="location.href='./chapter2'") ２章 準備しよう
-            p
-              button(type="button" onclick="location.href='./chapter3'") ３章 サーバーサイドプログラミング入門
-            p
-              button(type="button" onclick="location.href='./chapter4'") ４章 実践サーバーサイドプログラミング
-            p
-              button(type="button" onclick="location.href='./chapter0'") ０章　入門コースをはじめる方へ
-        
-        script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
-        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
-        crossorigin="anonymous")
+block content
+  main#maindiv
+    .container
+      //- button#logoutButton(type="button" onclick="location.href='./logout'") ログアウト
+      h3 #{title}
+      h4 【 #{Q} 】アンケート!
+      hr
+      img#char1(src="http://drive.google.com/uc?export=view&id=15eFZ2kKYvLXESJ09BGAPr7a4f_L0gErM")
+      img#char2(src="http://drive.google.com/uc?export=view&id=1t_JczBffzwmDMHumalPQcoT5sTMYDN13")
+    .container
+      .row
+        .col-sm
+          P 【Q.#{Q_small}】
+          p
+            button(type="button" onclick="location.href='./chapter1'") １章 はじめよう
+          p
+            button(type="button" onclick="location.href='./chapter2'") ２章 準備しよう
+          p
+            button(type="button" onclick="location.href='./chapter3'") ３章 サーバーサイドプログラミング入門
+          p
+            button(type="button" onclick="location.href='./chapter4'") ４章 実践サーバーサイドプログラミング
+          p
+            button(type="button" onclick="location.href='./chapter0'") ０章　入門コースをはじめる方へ
+          hr
+          hr
+          p
+            button(type="button" onclick="location.href='/result'") →　アンケート結果ページへ
+
+      
+      script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
+      script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
+      crossorigin="anonymous")
